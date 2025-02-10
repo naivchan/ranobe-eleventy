@@ -14,7 +14,7 @@ module.exports = function(eleventyConfig) {
   // layout: post. If you don’t want to rewrite all of those values, just map
   // post to a new file like this:
   // eleventyConfig.addLayoutAlias("post", "layouts/my_new_post_layout.njk");
-
+  
   // Merge data instead of overriding
   // https://www.11ty.dev/docs/data-deep-merge/
   eleventyConfig.setDataDeepMerge(true);
@@ -118,14 +118,4 @@ module.exports = function(eleventyConfig) {
   };
 };
 
-eleventyConfig.addCollection("tagList", collections => {
-  const tags = collections
-    .getAll()
-    .reduce((tags, item) => tags.concat(item.data.tags), [])
-    .filter(tag => !!tag && !["posts", "all"].includes(tag))
-    .sort()
-  return Array.from(new Set(tags)).map(tag => ({
-    title: tag,
-    count: collections.getFilteredByTag(tag).length,
-  }))
-})
+
