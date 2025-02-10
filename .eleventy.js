@@ -36,35 +36,6 @@ module.exports = function(eleventyConfig) {
       return coll;
     }, {});
   });
-
-  // Tags List collection
-   eleventyConfig.addCollection("tagList", function(collection) {
-    let tagSet = new Set();
-    collection.getAll().filter(livePosts).forEach(function(item) {
-      if( "tags" in item.data ) {
-        let tags = item.data.tags;
-
-        tags = tags.filter(function(item) {
-
-
-          switch(item) {
-            // this list should match the `filter` list in tags.njk
-            case "all":
-            case "nav":
-            case "post":
-            case "posts":
-              return false;
-          }
-          return true;
-        });
-
-
-        for (const tag of tags) {
-          tagSet.add(tag);
-        }
-      }
-    });
-
   
   // Date formatting (human readable)
   eleventyConfig.addFilter("readableDate", dateObj => {
@@ -146,7 +117,35 @@ module.exports = function(eleventyConfig) {
       output: "_site"
     }
   };
-});
+};
+
+  // Tags List collection
+   eleventyConfig.addCollection("tagList", function(collection) {
+    let tagSet = new Set();
+    collection.getAll().filter(livePosts).forEach(function(item) {
+      if( "tags" in item.data ) {
+        let tags = item.data.tags;
+
+        tags = tags.filter(function(item) {
+
+
+          switch(item) {
+            // this list should match the `filter` list in tags.njk
+            case "all":
+            case "nav":
+            case "post":
+            case "posts":
+              return false;
+          }
+          return true;
+        });
+
+
+        for (const tag of tags) {
+          tagSet.add(tag);
+        }
+      }
+    });
 
 
 
