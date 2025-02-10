@@ -1,6 +1,6 @@
 ---
 title: 'Tag Archive'
-layout: 'layouts/feed.html'
+layout: 'layouts/page.njk'
 date: 2025-02-09T18:49:00.000Z
 pagination:
   data: collections
