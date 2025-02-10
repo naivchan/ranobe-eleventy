@@ -5,7 +5,7 @@ date: 2025-02-09T18:49:00.000Z
 permalink: /tags/index.html
 eleventyNavigation:
   key: Tags
-  order: 5
+  order: 4
 ---
 
 <ul>
