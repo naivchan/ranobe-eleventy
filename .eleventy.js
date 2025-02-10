@@ -117,3 +117,15 @@ module.exports = function(eleventyConfig) {
     }
   };
 };
+
+eleventyConfig.addCollection("tagList", collections => {
+  const tags = collections
+    .getAll()
+    .reduce((tags, item) => tags.concat(item.data.tags), [])
+    .filter(tag => !!tag && !["posts", "all"].includes(tag))
+    .sort()
+  return Array.from(new Set(tags)).map(tag => ({
+    title: tag,
+    count: collections.getFilteredByTag(tag).length,
+  }))
+})
