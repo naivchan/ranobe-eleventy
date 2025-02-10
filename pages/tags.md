@@ -1,6 +1,12 @@
 ---
 layout: default
 title: Tags
+
+title: Tags
+permalink: /tags
+eleventyNavigation:
+  key: About
+  order: 3
 ---
 
 {% for tag in collections.tagList %}
