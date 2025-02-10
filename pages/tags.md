@@ -5,7 +5,7 @@ title: Tags
 title: Tags
 permalink: /tags
 eleventyNavigation:
-  key: About
+  key: Tags
   order: 3
 ---
 
