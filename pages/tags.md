@@ -1,17 +1,14 @@
 ---
-layout: layouts/home.njk
-title: Tags
+title: 'Tag Archive'
+layout: 'layouts/feed.html'
 date: 2025-02-09T18:49:00.000Z
-permalink: /tags/index.html
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter: ['all']
+permalink: '/tag/{{ tag | slugify }}/'
 eleventyNavigation:
   key: Tags
   order: 4
 ---
-
-<ul>
-  {% for tag in collections.tagList %}
-  <li>
-    <a href="/tag/{{ tag.title | slug }}/">{{ tag.title }} ({{ tag.count }})</a>
-  </li>
-  {% endfor %}
-</ul>
