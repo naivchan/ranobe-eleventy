@@ -7,12 +7,14 @@ eleventyNavigation:
   key: Tags
   order: 5
 ---
-{% for tag in collections.tagList %}
-
-<span>
-    <a href="/tags/{{ tag }}"><button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-6 mb-4">
-        {{ tag }}
-    </button>
-    </a>
-</span>
+{% for post in collections[tag] %}
+<div class="py-4 sm:py-10">
+  <p>
+    <span class="text-2xl sm:text-4xl font-bold hover:underline"><a href="{{ post.url }}">{{ post.data.title }}</a></span>
+  </p>
+  <em>{{ post.date | date: "%Y-%m-%d" }}</em>
+  <p class="mt-4">{{ post.data.post_excerpt }}... 
+    <span class="hover:underline text-indigo-500"><a href="{{ post.url }}">Read More</a></span>
+  </p>
+</div>
 {% endfor %}
